@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Практическое задание 3: Критерии принятия решений в условиях неопределенности</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <link href="style.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Основные стили */
+    :root {
+      --primary-dark: #1b5e20;
+      --primary-light: #4caf50;
+      --primary-light-20: rgba(76, 175, 80, 0.2);
+      --accent: #8bc34a;
+      --text-light: #e8f5e9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --radius: 8px;
+    }
+    
+    body {
+      font-family: 'Roboto', 'Arial', sans-serif;
+      background-color: #f5f9f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    
+    /* Стили для контента */
+    .practice-block {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 40px;
+      transition: var(--transition);
+    }
+    
+    .practice-block:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+    
+    /* Типография */
+    h2, h3, h4 {
+      color: var(--primary-dark);
+      font-weight: 500;
+      margin-top: 25px;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #2e7d32;
+    }
+    
+    p {
+      margin-bottom: 15px;
+    }
+    
+    /* Списки */
+    ul {
+      padding-left: 25px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+    
+    /* Таблицы */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    th {
+      background-color: var(--primary-dark);
+      color: white;
+      font-weight: 500;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    tr:hover {
+      background-color: var(--primary-light-20);
+    }
+    
+    /* Кнопки скачивания */
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      background-color: var(--primary-dark);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      margin: 10px 10px 10px 0;
+    }
+    
+    .download-btn:hover {
+      background-color: #2e7d32;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .download-btn i {
+      margin-right: 8px;
+    }
+    
+    .download-group {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    
+    /* Анимации */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    section {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      .practice-block {
+        padding: 20px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      h3 {
+        font-size: 1.3rem;
+      }
+      
+      h4 {
+        font-size: 1.1rem;
+      }
+      
+      th, td {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+      
+      .download-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Практическое задание 3: Критерии принятия решений в условиях неопределенности</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="theory.html">Теоретическая часть</a></li>
+          <li><a href="practice.html" class="active">Практические задания</a></li>
+          <li><a href="tests.html">Тесты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">
+    <section class="practice-block">
+      <h2 class="centered-title">ИССЛЕДОВАНИЕ КРИТЕРИЕВ ДЛЯ ПРИНЯТИЯ РЕШЕНИЙ В УСЛОВИЯХ НЕОПРЕДЕЛЕННОСТИ</h2>
+      
+      <h3>Цель работы</h3>
+      <p>Приобретение и закрепление знаний, и получение практических навыков работы с критериями для принятия решений в условиях неопределенности.</p>
+      
+      <h3>Сведения из теории</h3>
+      <h4>Математические модели задач принятия решения</h4>
+      <p>Любая математическая модель задачи принятия решения представляет собой формальное описание цели, средств и результатов, а также способа связи средств с результатами. Для формального описания средств и результатов можно задать два множества:</p>
+      
+      <ul>
+        <li>Множество <em>Х</em> = {<em>x</em><sub>1</sub>, ..., <em>x</em><sub>n</sub>}, элементы которого называются альтернативами</li>
+        <li>Множество <em>А</em> = {<em>a</em><sub>1</sub>, ..., <em>a</em><sub>n</sub>}, элементы которого называются исходами</li>
+      </ul>
+      
+      <p>Альтернативы — это то, что выбирает лицо, принимающее решение (ЛПР), а исходы — то, к чему они приводят.</p>
+      
+      <h4>Типы зависимости исходов от альтернатив</h4>
+      <p>В задачах принятия решений с конечными множествами <em>X</em> и <em>A</em> существует несколько типов зависимости исходов от альтернатив:</p>
+      
+      <ol>
+        <li><strong>Функциональная зависимость</strong> — каждая альтернатива приводит к единственному исходу</li>
+        <li><strong>Стохастическая зависимость</strong> — каждая альтернатива может привести к одному из нескольких исходов, каждый из которых имеет определенную вероятность появления</li>
+        <li><strong>Неопределенная зависимость</strong> — каждая альтернатива может привести к одному из нескольких исходов, причем отсутствует даже стохастическая зависимость</li>
+      </ol>
+      
+      <p>Полученный исход определяется двумя факторами:</p>
+      <ul>
+        <li>Выбором альтернативы, осуществляемым ЛПР</li>
+        <li>Состоянием внешней среды <em>Y</em> = {<em>y</em><sub>1</sub>, ..., <em>y</em><sub>m</sub>}</li>
+      </ul>
+      
+      <p>Каждый исход <em>a<sub>ij</sub></em> ∈ <em>А</em> есть функция двух аргументов: <em>a<sub>ij</sub></em> = <em>F</em>(<em>x<sub>i</sub></em>, <em>y<sub>j</sub></em>), где:</p>
+      <ul>
+        <li><em>x<sub>i</sub></em> (<em>x<sub>i</sub></em> ∈ <em>Х</em>) — выбранная альтернатива</li>
+        <li><em>y<sub>j</sub></em> (<em>y<sub>j</sub></em> ∈ <em>Y</em>) — состояние внешней среды</li>
+      </ul>
+      
+      <h4>Условия принятия решений</h4>
+      <table>
+        <tr>
+          <th>Тип зависимости</th>
+          <th>Условия принятия решений</th>
+        </tr>
+        <tr>
+          <td>Функциональная</td>
+          <td>В условиях определенности</td>
+        </tr>
+        <tr>
+          <td>Стохастическая</td>
+          <td>В условиях риска</td>
+        </tr>
+        <tr>
+          <td>Неопределенная</td>
+          <td>В условиях неопределенности</td>
+        </tr>
+      </table>
+      
+      <p>Информированность ЛПР о связи альтернатив с исходами может не совпадать с объективно существующей связью. Например, объективно зависимость исходов от альтернатив носит стохастический характер, но ЛПР не знает вероятностей наступления исходов при выборе каждой конкретной альтернативы, поэтому для ЛПР условия принятия решения надо квалифицировать как условия неопределенности.</p>
+      
+      <p>Наглядно связи между альтернативами и исходами можно представить с помощью функции реализации <em>F</em>(<em>x</em>, <em>y</em>). Эта функция сопоставляет каждой паре альтернатива-состояние среды определяемый ею исход. Если множество альтернатив и множество состояний среды конечны, то удобно представлять функцию реализации <em>F</em> в виде таблицы (матрицы решений).</p>
+      
+      <h3>Задание и материалы для выполнения</h3>
+      <ol>
+        <li>Изучите теоретические основы принятия решений в условиях неопределенности</li>
+        <li>Разработайте матрицу решений для конкретной задачи</li>
+        <li>Примените различные критерии принятия решений (максимин, максимакс, Гурвица и др.)</li>
+        <li>Сравните результаты, полученные по разным критериям</li>
+        <li>Сделайте выводы о применимости различных критериев в зависимости от условий задачи</li>
+      </ol>
+      
+      <div class="download-group">
+        <a download href="practice_task3.docx" class="download-btn">
+          <i class="fas fa-file-word"></i> Скачать задание с примером выполнения (.docx)
+        </a>
+      </div>
+    </section>
+  </div>
+  
+  <footer>
+    <p>© 2025 Все права защищены</p>
+  </footer>
+  
+  <script>
+    const currentPath = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll("header nav ul li a");
+    navLinks.forEach(link => {
+      if (link.getAttribute("href") === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+</body>
+</html>

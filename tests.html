@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тесты</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+	<link rel="manifest" href="images/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+	<div class="header-container">
+        <h1>Системы поддержки принятия решений в государственных информационных системах</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="theory.html">Теоретическая часть</a></li>
+                <li><a href="practice.html">Практические задания</a></li>
+                <li><a href="tests.html" class="active">Тесты</a></li>
+            </ul>
+        </nav>
+	</div>
+    </header>
+
+    <div class="container">
+        <section class="tests">
+            <h2>Тесты</h2>
+            <div class="modules-grid">
+
+                <!-- Тест 1 -->
+                <a href="test1.html" class="module-card">
+                    <img src="images/test1.png" alt="Тест 1">
+                    <h3>Тест 1: Основы СППР</h3>
+                    <p>Пройдите тест, чтобы проверить свои знания о системах поддержки принятия решений.</p>
+                </a>
+
+                <!-- Тест 2 -->
+                <a href="test2.html" class="module-card">
+                    <img src="images/test2.png" alt="Тест 2">
+                    <h3>Тест 2: Алгоритмы СППР</h3>
+                    <p>Ответьте на вопросы о применении алгоритмов в СППР и их особенностях.</p>
+                </a>
+
+                <!-- Тест 3 -->
+                <a href="test3.html" class="module-card">
+                    <img src="images/test3.png" alt="Тест 3">
+                    <h3>Тест 3: СППР в государственном управлении</h3>
+                    <p>Оцените свои знания о применении СППР в реальных кейсах государственного управления.</p>
+                </a>
+				
+				<!-- Тест 4 -->
+                <a href="test4.html" class="module-card">
+                    <img src="images/test4.png" alt="Тест 3">
+                    <h3>Тест 4: Итоговое тестирование</h3>
+                    <p>Оцените свои знания о применении СППР в реальных кейсах государственного управления.</p>
+                </a>
+
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Все права защищены</p>
+    </footer>
+
+    <!-- Скрипт активной вкладки -->
+    <script>
+        const currentPath = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll("header nav ul li a");
+        navLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPath) {
+                link.classList.add("active");
+            }
+        });
+    </script>
+
+</body>
+</html>

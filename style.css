@@ -1,0 +1,341 @@
+/* ========== ОБНУЛЕНИЕ ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    color: #1b5e20;
+    line-height: 1.6;
+}
+
+/* ========== HEADER ========== */
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.4rem;
+    }
+    
+    header nav ul li {
+        margin: 5px;
+    }
+    
+    header nav ul li a {
+        font-size: 0.9rem;
+        padding: 4px 8px;
+    }
+}
+
+/* ========== КОНТЕЙНЕР ========== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+/* ========== СЕКЦИИ ========== */
+section {
+    background-color: #c8e6c9;
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #1b5e20;
+}
+
+section h2,
+section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #1b5e20;
+}
+
+section p,
+section li {
+    font-size: 1.1rem;
+    color: #388e3c;
+}
+
+/* ========== ЦЕНТРИРОВАННЫЙ ЗАГОЛОВОК ========== */
+.centered-title {
+    text-align: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+/* ========== КАРТОЧКИ МОДУЛЕЙ ========== */
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.module-card {
+    display: block;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: #1b5e20;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.module-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.module-card h3 {
+    font-size: 1.3rem;
+    padding: 15px 15px 5px;
+    color: #1b5e20;
+}
+
+.module-card p {
+    font-size: 1rem;
+    padding: 0 15px 15px;
+    color: #388e3c;
+}
+
+/* ========== СТИЛИ ДЛЯ ТЕСТОВ ========== */
+.test {
+    background-color: #c8e6c9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #1b5e20;
+}
+
+.test h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: #1b5e20;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.options {
+    margin-top: 10px;
+}
+
+.options label {
+    display: block;
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #2e7d32;
+}
+
+button {
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2e7d32;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+#result,
+#resultAHP {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #1b5e20;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background-color: #2e7d32;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    header nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .modules-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .test {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .modules-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .module-card {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+/* Стили для модуля 6 */
+.criteria-table {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+}
+
+.criteria-table th, .criteria-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.criteria-table th {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.criteria-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.error {
+  border: 2px solid #f44336 !important;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.score, .point-score {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+#customResult, #pointResult {
+  padding: 15px;
+  margin: 15px 0;
+  background-color: #e8f5e9;
+  border-radius: 5px;
+  border-left: 4px solid #2e7d32;
+}
+
+.method-section {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #2e7d32;
+}
+
+input[type="number"] {
+  width: 60px;
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .criteria-table {
+    font-size: 14px;
+  }
+  
+  input[type="number"] {
+    width: 50px;
+    padding: 5px;
+  }
+}

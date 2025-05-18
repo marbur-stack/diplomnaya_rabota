@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Модуль 6: Модели хранения данных</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <link href="style.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Основные стили */
+    :root {
+      --primary-dark: #1b5e20;
+      --primary-light: #4caf50;
+      --primary-light-20: rgba(76, 175, 80, 0.2);
+      --accent: #8bc34a;
+      --text-light: #e8f5e9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --radius: 8px;
+    }
+    
+    body {
+      font-family: 'Roboto', 'Arial', sans-serif;
+      background-color: #f5f9f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    
+    /* Стили для контента */
+    .theory-block {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 40px;
+      transition: var(--transition);
+    }
+    
+    .theory-block:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+    
+    /* Типография */
+    h2, h3, h4 {
+      color: var(--primary-dark);
+      font-weight: 500;
+      margin-top: 25px;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #2e7d32;
+    }
+    
+    p {
+      margin-bottom: 15px;
+    }
+    
+    /* Списки */
+    ul {
+      padding-left: 25px;
+      margin-bottom: 20px;
+    }
+
+    /* Таблицы */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    th {
+      background-color: var(--primary-dark);
+      color: white;
+      font-weight: 500;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    tr:hover {
+      background-color: var(--primary-light-20);
+    }
+    
+    /* Кнопка скачивания */
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      background-color: var(--primary-dark);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      margin-top: 10px;
+    }
+    
+    .download-btn:hover {
+      background-color: #2e7d32;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .download-btn i {
+      margin-right: 8px;
+    }
+    
+    /* Анимации */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    section {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      .theory-block {
+        padding: 20px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      h3 {
+        font-size: 1.3rem;
+      }
+      
+      h4 {
+        font-size: 1.1rem;
+      }
+      
+      th, td {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+      
+      .download-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Модуль 6: Модели хранения данных в системах поддержки принятия решений</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="theory.html" class="active">Теоретическая часть</a></li>
+          <li><a href="practice.html">Практические задания</a></li>
+          <li><a href="tests.html">Тесты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">
+    <section class="theory-block">
+      <h2 class="centered-title">Модели хранения данных в системах поддержки принятия решений</h2>
+      
+      <h3>МНОГОМЕРНАЯ МОДЕЛЬ ДАННЫХ</h3>
+      <p><strong>Многомерная модель данных</strong> — это специализированная структура организации информации, оптимизированная для аналитической обработки и поддержки принятия решений. В отличие от традиционных реляционных моделей, она представляет данные в виде кубов (OLAP-кубов), где измерения (dimensions) задают аналитические разрезы (время, география, продукция и др.), а меры (measures) содержат количественные показатели для анализа (продажи, затраты, прибыль).</p>
+
+      <h3>ХРАНИЛИЩЕ ДАННЫХ</h3>
+      <p><strong>Хранилище данных</strong> — это разновидность системы управления данными, которая обеспечивает поддержку бизнес-аналитики. Хранилища данных предназначены только для выполнения запросов и анализа и обычно содержат большие объемы исторических данных. Данные обычно поступают в хранилище из самых различных источников, таких как журналы приложений и приложения транзакций.</p>
+      
+      <h4>Основные особенности хранения данных</h4>
+      <ul>
+        <li><strong>Предметно-ориентированность:</strong> Хранилища данных организованы по предметным областям, что позволяет эффективно управлять данными и проводить анализ в контексте конкретных бизнес-процессов.</li>
+        <li><strong>Интеграция данных:</strong> ХД объединяет данные из различных источников, таких как транзакционные системы и журналы приложений, что обеспечивает целостность и согласованность информации.</li>
+        <li><strong>Исторические данные:</strong> Хранилища данных накапливают записи за длительные периоды, что позволяет проводить глубокий анализ и выявлять тренды.</li>
+        <li><strong>Поддержка аналитики:</strong> ХД оптимизированы для выполнения сложных запросов и анализа данных, что делает их идеальными для бизнес-аналитиков и менеджеров.</li>
+        <li><strong>Архитектура:</strong> Современные хранилища данных часто имеют многоуровневую архитектуру, такую как LSA (Layered Scalable Architecture), которая включает в себя операционный слой, ядро хранилища и аналитические витрины.</li>
+      </ul>
+
+      <h3>ВИТРИНЫ ДАННЫХ</h3>
+      <p><strong>Витрина данных (Data Mart)</strong> - это база, в которой хранится вся масса информации по деятельности той или иной компании. Но нередко бывает нужным выделить из всего этого масштабного комплекса данные по одному направлению работы организации, подразделению, служебному вопросу. Здесь приходит на помощь иной тип хранилища — так называемые витрины данных.</p>
+      
+      <h4>Основные характеристики витрин данных</h4>
+      <ul>
+        <li>тематика и фокусировка;</li>
+        <li>агрегация данных;</li>
+        <li>независимость;</li>
+        <li>легкость в проектировании.</li>
+      </ul>
+
+      <h3>МОДЕЛЬ ДАННЫХ OLAP</h3>
+      <p><strong>Модель данных OLAP</strong> основана на концепции многомерного представления информации, что позволяет пользователю обрабатывать данные с различных точек зрения.</p>
+      
+      <h4>Основные компоненты модели OLAP</h4>
+      <ul>
+        <li><strong>OLAP-кубы:</strong> Это многомерные структуры, в которых данные организованы по измерениям и фактам. Каждое измерение представляет собой аспект данных, например, время, география или продукт, а факты — это количественные данные, такие как объемы продаж или доходы. На пересечении измерений находятся агрегированные данные, что позволяет быстро получать нужную информацию.</li>
+        <li><strong>Измерения и факты:</strong> Измерения представляют собой категории, по которым данные могут быть проанализированы, например, "время", "регион" или "продукт". Факты — это числовые значения, которые можно агрегировать, например, "количество продаж" или "выручка". Каждое измерение может иметь иерархическую структуру, что позволяет детализировать данные на разных уровнях, например, "год - квартал - месяц - день" для временного измерения.</li>
+        <li><strong>Иерархия измерений:</strong> Каждое измерение может быть организовано в виде иерархии, что позволяет пользователям легко перемещаться между уровнями детализации. Например, в измерении "Регион" могут быть уровни "Страна - Область - Город".</li>
+        <li><strong>Агрегация данных:</strong> OLAP-системы позволяют выполнять агрегацию данных, что означает, что пользователи могут получать сводные данные по различным измерениям. Это позволяет быстро анализировать данные и выявлять тренды.</li>
+      </ul>
+
+      <h3>OLAP-КУБ</h3>
+      <p><strong>OLAP-куб</strong> — (On-Line Analytical Processing — интерактивный анализ данных) многомерный массив данных, как правило, разреженный и долговременно хранимый, используемый в OLAP. Может быть реализован на основе универсальных реляционных СУБД или специализированным программным обеспечением.</p>
+
+      <h3>КЛЮЧЕВЫЕ ПРИНЦИПЫ OLAP</h3>
+      <h4>Многомерность</h4>
+      <ul>
+        <li>Данные представляются в виде кубов (OLAP-кубов), где:
+          <ul>
+            <li>Измерения (Dimensions) — аналитические разрезы (время, география, продукт).</li>
+            <li>Меры (Measures) — числовые показатели (продажи, прибыль, затраты).</li>
+          </ul>
+        </li>
+      </ul>
+      <p>Пример: куб продаж с измерениями [Время × Регион × Категория товара] и мерой «Объем выручки».</p>
+
+      <h4>Иерархии</h4>
+      <ul>
+        <li>Уровни детализации внутри измерений (например, Год → Квартал → Месяц → День).</li>
+      </ul>
+
+      <h4>Операции анализа</h4>
+      <ul>
+        <li><strong>Slice («срез»)</strong> — выбор данных по одному значению измерения (например, продажи за 2024 год).</li>
+        <li><strong>Dice («нарезка»)</strong> — фильтрация по нескольким измерениям (продажи в Москве за Q1 2024).</li>
+        <li><strong>Roll-up («свертка»)</strong> — агрегация (например, сумма продаж по годам).</li>
+        <li><strong>Drill-down («углубление»)</strong> — детализация (от квартала к месяцам).</li>
+        <li><strong>Pivot («поворот»)</strong> — изменение структуры отчета (перегруппировка измерений).</li>
+      </ul>
+
+      <h3>Типы OLAP-систем</h3>
+      <table border="1">
+        <tr>
+          <th>Тип</th>
+          <th>Описание</th>
+          <th>Примеры</th>
+        </tr>
+        <tr>
+          <td><strong>MOLAP</strong></td>
+          <td>Многомерное хранение (кубы в специализированных структурах). Высокая скорость, но ограниченный объем.</td>
+          <td>Microsoft Analysis Services</td>
+        </tr>
+        <tr>
+          <td><strong>ROLAP</strong></td>
+          <td>Реляционное хранение (данные в SQL-БД). Масштабируемость, но меньшая скорость.</td>
+          <td>Snowflake, Google BigQuery</td>
+        </tr>
+        <tr>
+          <td><strong>HOLAP</strong></td>
+          <td>Гибридный подход (часть данных в кубах, часть — в RDBMS). Баланс скорости и объема.</td>
+          <td>IBM Cognos</td>
+        </tr>
+      </table>
+
+      <h3>Презентация к модулю</h3>
+      <p>Скачайте презентацию, содержащую ключевые моменты этого модуля:</p>
+      <a download href="module6_presentation.pptx" class="download-btn">
+        <i class="fas fa-download"></i> Скачать презентацию (.pptx)
+      </a>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Все права защищены</p>
+  </footer>
+  
+  <script>
+    const currentPath = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll("header nav ul li a");
+    navLinks.forEach(link => {
+      if (link.getAttribute("href") === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+</body>
+</html>

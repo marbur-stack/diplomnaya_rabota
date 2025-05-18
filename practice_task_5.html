@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Задание 5: Метод анализа иерархий</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Специальные стили */
+    #task7 table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    #task7 th, #task7 td {
+      padding: 12px 8px;
+      text-align: center;
+      border: 1px solid #e0e0e0;
+    }
+    
+    #task7 th {
+      background-color: #2e7d32;
+      color: white;
+      font-weight: normal;
+    }
+    
+    #task7 tr:nth-child(even) {
+      background-color: #f8f8f8;
+    }
+    
+    #task7 input[type="number"] {
+      width: 70px;
+      padding: 6px;
+      border: 1px solid #bdbdbd;
+      border-radius: 3px;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    #task7 button {
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      font-size: 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin: 15px 0;
+      display: inline-block;
+    }
+    
+    #task7 button:hover {
+      background-color: #2e7d32;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    #resultAHP {
+      padding: 12px 18px;
+      margin: 15px 0;
+      background-color: #e8f5e9;
+      border-radius: 5px;
+      border-left: 4px solid #2e7d32;
+      font-size: 15px;
+    }
+    
+    #task7 .error {
+      border: 2px solid #f44336 !important;
+      animation: shake 0.4s;
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-3px); }
+      40%, 80% { transform: translateX(3px); }
+    }
+  </style>
+</head>
+<body>
+  <section id="task7">
+    <h2>Задание 5: Метод анализа иерархий</h2>
+    <p><strong>Цель:</strong> Выбрать оптимальную модель телефона на основе многокритериальной оценки.</p>
+
+    <h3>Исходные данные:</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Модель телефона</th>
+          <th>Размер экрана, дюйм</th>
+          <th>ОЗУ, ГБ</th>
+          <th>Цена, руб.</th>
+          <th>Камера, Мп</th>
+          <th>Аккумулятор, мА*ч</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>SAMSUNG Galaxy J2 Prime</td><td>5</td><td>1.6</td><td>7990</td><td>8</td><td>2600</td></tr>
+        <tr><td>XIAOMI Redmi 5A</td><td>5</td><td>2.0</td><td>8990</td><td>13</td><td>3000</td></tr>
+        <tr><td>NOKIA 5 DS Black</td><td>5.2</td><td>2.0</td><td>8990</td><td>13</td><td>3000</td></tr>
+        <tr><td>ALCATEL 3 5025D</td><td>5.5</td><td>2.0</td><td>8990</td><td>13</td><td>3000</td></tr>
+        <tr><td>VERTEX Impress Tor 4G</td><td>5</td><td>1.0</td><td>7490</td><td>13</td><td>4400</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Введите веса критериев (сумма = 1.0):</h3>
+    <table class="input-table">
+      <thead>
+        <tr>
+          <th>Критерий</th>
+          <th>Размер экрана</th>
+          <th>ОЗУ</th>
+          <th>Цена</th>
+          <th>Камера</th>
+          <th>Аккумулятор</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Вес</td>
+          <td><input type="number" step="0.05" min="0" max="1" class="weight-input"></td>
+          <td><input type="number" step="0.05" min="0" max="1" class="weight-input"></td>
+          <td><input type="number" step="0.05" min="0" max="1" class="weight-input"></td>
+          <td><input type="number" step="0.05" min="0" max="1" class="weight-input"></td>
+          <td><input type="number" step="0.05" min="0" max="1" class="weight-input"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Оцените модели (1–10):</h3>
+    <table class="input-table">
+      <thead>
+        <tr>
+          <th>Модель</th>
+          <th>Размер экрана</th>
+          <th>ОЗУ</th>
+          <th>Цена</th>
+          <th>Камера</th>
+          <th>Аккумулятор</th>
+        </tr>
+      </thead>
+      <tbody id="scoreTable">
+        <tr><td>SAMSUNG Galaxy J2 Prime</td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td></tr>
+        <tr><td>XIAOMI Redmi 5A</td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td></tr>
+        <tr><td>NOKIA 5 DS Black</td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td></tr>
+        <tr><td>ALCATEL 3 5025D</td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td></tr>
+        <tr><td>VERTEX Impress Tor 4G</td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td><td><input type="number" min="1" max="10"></td></tr>
+      </tbody>
+    </table>
+
+    <button id="calculateBtn">Рассчитать</button>
+
+    <div id="resultAHP"></div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Автоматическое округление весов при вводе
+        document.querySelectorAll('.weight-input').forEach(input => {
+          input.addEventListener('change', function() {
+            if (this.value) {
+              const val = parseFloat(this.value);
+              if (!isNaN(val)) {
+                this.value = Math.round(val * 100) / 100; // Округление до 2 знаков
+              }
+            }
+          });
+        });
+
+        // Обработчик кнопки расчета
+        document.getElementById('calculateBtn').addEventListener('click', calculateAHP7);
+      });
+
+      function calculateAHP7() {
+        // Сброс ошибок
+        document.querySelectorAll('input').forEach(input => {
+          input.classList.remove('error');
+        });
+
+        // Проверка весов
+        const weightInputs = document.querySelectorAll(".weight-input");
+        const weights = Array.from(weightInputs).map(inp => {
+          const val = parseFloat(inp.value);
+          return isNaN(val) ? 0 : val;
+        });
+        
+        const weightSum = weights.reduce((a, b) => a + b, 0);
+        const sumRounded = Math.round(weightSum * 100) / 100; // Округление суммы
+
+        // Проверка суммы с учетом округления
+        if (sumRounded !== 1) {
+          document.getElementById("resultAHP").innerHTML = 
+            `<span style="color:#f44336;">Сумма весов должна быть равна 1.0 (текущая сумма: ${sumRounded.toFixed(2)})</span>`;
+          weightInputs.forEach(input => input.classList.add('error'));
+          return;
+        }
+
+        // Проверка оценок
+        let allValid = true;
+        const scoreInputs = document.querySelectorAll("#scoreTable input");
+        scoreInputs.forEach(input => {
+          const value = parseInt(input.value);
+          if (isNaN(value) || value < 1 || value > 10) {
+            input.classList.add('error');
+            allValid = false;
+          }
+        });
+
+        if (!allValid) {
+          document.getElementById("resultAHP").innerHTML = 
+            '<span style="color:#f44336;">Пожалуйста, введите корректные оценки (1-10) для всех критериев</span>';
+          return;
+        }
+
+        // Расчет результатов
+        const rows = document.querySelectorAll("#scoreTable tr");
+        const scores = [];
+
+        rows.forEach(row => {
+          const inputs = row.querySelectorAll("input");
+          const values = Array.from(inputs).map(inp => parseFloat(inp.value));
+          const total = values.reduce((sum, val, i) => sum + val * weights[i], 0);
+          scores.push({ model: row.children[0].textContent, score: total });
+        });
+
+        scores.sort((a, b) => b.score - a.score);
+        const best = scores[0];
+        
+        // Форматирование результата
+        let resultHTML = `Лучший выбор: <strong>${best.model}</strong> (оценка: ${best.score.toFixed(2)})<br><br>`;
+        resultHTML += '<strong>Рейтинг моделей:</strong><ol>';
+        scores.forEach(item => {
+          resultHTML += `<li>${item.model}: ${item.score.toFixed(2)}</li>`;
+        });
+        resultHTML += '</ol>';
+        
+        document.getElementById("resultAHP").innerHTML = resultHTML;
+      }
+    </script>
+  </section>
+</body>
+</html>

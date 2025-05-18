@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Модуль 4: Многокритериальная оптимизация</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Специальные стили */
+    #task6 table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    #task6 th, #task6 td {
+      padding: 12px 8px;
+      text-align: center;
+      border: 1px solid #e0e0e0;
+    }
+    
+    #task6 th {
+      background-color: #2e7d32;
+      color: white;
+      font-weight: normal;
+    }
+    
+    #task6 tr:nth-child(even) {
+      background-color: #f8f8f8;
+    }
+    
+    #task6 input[type="number"] {
+      width: 50px;
+      padding: 6px;
+      border: 1px solid #bdbdbd;
+      border-radius: 3px;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    #task6 button {
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      font-size: 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin: 15px 0;
+      display: inline-block;
+    }
+    
+    #task6 button:hover {
+      background-color: #2e7d32;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    #task6 .score, #task6 .point-score {
+      font-weight: bold;
+      color: #1b5e20;
+      font-size: 15px;
+    }
+    
+    #task6 .error {
+      border: 2px solid #f44336 !important;
+      animation: shake 0.4s;
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-3px); }
+      40%, 80% { transform: translateX(3px); }
+    }
+    
+    #task6 .method-section {
+      margin-top: 35px;
+      padding-top: 25px;
+      border-top: 1px solid #c8e6c9;
+    }
+    
+    #customResult, #pointResult {
+      padding: 12px 18px;
+      margin: 15px 0;
+      background-color: #e8f5e9;
+      border-radius: 5px;
+      border-left: 4px solid #2e7d32;
+      font-size: 15px;
+    }
+    
+    #task6 .rating-list {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+    
+    #task6 .rating-list li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <section id="task6">
+    <h2>Задание 4: Многокритериальная оптимизация</h2>
+    <p><strong>Цель:</strong> Определить наилучшую модель монитора на основе векторных критериев</p>
+
+    <h3>Исходные данные:</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Модель</th>
+          <th>Диагональ (дюймы) ▲</th>
+          <th>Размер пикселя (мм) ▼</th>
+          <th>Цена ($) ▼</th>
+          <th>Ремонт ($) ▼</th>
+          <th>Частота (Гц) ▲</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>LG StudioWorks 44i</td><td>14</td><td>0.28</td><td>140</td><td>120</td><td>144</td></tr>
+        <tr><td>Sony CPD-G200</td><td>17</td><td>0.25</td><td>467</td><td>300</td><td>144</td></tr>
+        <tr><td>Nokia 447PRO</td><td>17</td><td>0.25</td><td>499</td><td>220</td><td>60</td></tr>
+        <tr><td>Samsung SyncMaster 700 IFT</td><td>17</td><td>0.25</td><td>347</td><td>180</td><td>240</td></tr>
+        <tr><td>ViewSonic E641</td><td>14</td><td>0.28</td><td>179</td><td>140</td><td>60</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Введите ранги для каждой модели (1 - лучший):</h3>
+    <table class="input-table">
+      <thead>
+        <tr>
+          <th>Модель</th>
+          <th>Диагональ</th>
+          <th>Размер пикселя</th>
+          <th>Цена</th>
+          <th>Ремонт</th>
+          <th>Частота</th>
+          <th>Сумма мест</th>
+        </tr>
+      </thead>
+      <tbody id="rankTableBody">
+        <!-- Строки будут добавлены через JS -->
+      </tbody>
+    </table>
+
+    <button id="calcRanks">Определить лучшую модель</button>
+    <div id="customResult"></div>
+    
+    <div class="method-section">
+      <h3>Метод бальных оценок</h3>
+      <p><strong>Цель:</strong> Определить наилучшую модель на основе суммы баллов (5 - лучший).</p>
+      
+      <table class="input-table">
+        <thead>
+          <tr>
+            <th>Модель</th>
+            <th>Диагональ</th>
+            <th>Размер пикселя</th>
+            <th>Цена</th>
+            <th>Ремонт</th>
+            <th>Частота</th>
+            <th>Сумма баллов</th>
+          </tr>
+        </thead>
+        <tbody id="pointsTableBody">
+          <!-- Строки будут добавлены через JS -->
+        </tbody>
+      </table>
+
+      <button id="calcPoints">Определить лучшую модель (баллы)</button>
+      <div id="pointResult"></div>
+    </div>
+  </section>
+
+  <script>
+    // Данные моделей
+    const models = [
+      { name: "LG StudioWorks 44i", diagonal: 14, pixelSize: 0.28, price: 140, repair: 120, frequency: 144 },
+      { name: "Sony CPD-G200", diagonal: 17, pixelSize: 0.25, price: 467, repair: 300, frequency: 144 },
+      { name: "Nokia 447PRO", diagonal: 17, pixelSize: 0.25, price: 499, repair: 220, frequency: 60 },
+      { name: "Samsung SyncMaster 700 IFT", diagonal: 17, pixelSize: 0.25, price: 347, repair: 180, frequency: 240 },
+      { name: "ViewSonic E641", diagonal: 14, pixelSize: 0.28, price: 179, repair: 140, frequency: 60 }
+    ];
+
+    // Инициализация таблиц
+    function initTables() {
+      const rankTable = document.getElementById('rankTableBody');
+      const pointsTable = document.getElementById('pointsTableBody');
+      
+      models.forEach(model => {
+        // Таблица рангов
+        rankTable.innerHTML += `
+          <tr>
+            <td>${model.name}</td>
+            <td><input type="number" min="1" max="5" class="rank-input"></td>
+            <td><input type="number" min="1" max="5" class="rank-input"></td>
+            <td><input type="number" min="1" max="5" class="rank-input"></td>
+            <td><input type="number" min="1" max="5" class="rank-input"></td>
+            <td><input type="number" min="1" max="5" class="rank-input"></td>
+            <td class="score">-</td>
+          </tr>
+        `;
+        
+        // Таблица баллов
+        pointsTable.innerHTML += `
+          <tr>
+            <td>${model.name}</td>
+            <td><input type="number" min="1" max="5" class="point-input"></td>
+            <td><input type="number" min="1" max="5" class="point-input"></td>
+            <td><input type="number" min="1" max="5" class="point-input"></td>
+            <td><input type="number" min="1" max="5" class="point-input"></td>
+            <td><input type="number" min="1" max="5" class="point-input"></td>
+            <td class="point-score">-</td>
+          </tr>
+        `;
+      });
+    }
+
+    // Функция расчета с рейтингом моделей
+    function calculateResults(type) {
+      const tableId = type === 'rank' ? 'rankTableBody' : 'pointsTableBody';
+      const resultId = type === 'rank' ? 'customResult' : 'pointResult';
+      const scoreClass = type === 'rank' ? 'score' : 'point-score';
+      const inputClass = type === 'rank' ? 'rank-input' : 'point-input';
+      const isRankMethod = type === 'rank';
+      
+      const rows = document.querySelectorAll(`#${tableId} tr`);
+      const results = [];
+      let allValid = true;
+
+      // Сброс ошибок
+      document.querySelectorAll(`.${inputClass}`).forEach(input => {
+        input.classList.remove('error');
+      });
+
+      // Расчет сумм
+      rows.forEach(row => {
+        const inputs = row.querySelectorAll(`.${inputClass}`);
+        let sum = 0;
+        let validRow = true;
+        
+        inputs.forEach(input => {
+          const value = parseInt(input.value);
+          if (isNaN(value) || value < 1 || value > 5) {
+            validRow = false;
+            input.classList.add('error');
+          } else {
+            sum += value;
+          }
+        });
+        
+        if (!validRow) allValid = false;
+        results.push({
+          name: row.cells[0].textContent,
+          sum: sum,
+          row: row
+        });
+        
+        row.querySelector(`.${scoreClass}`).textContent = validRow ? sum : '-';
+      });
+
+      // Вывод ошибки
+      if (!allValid) {
+        document.getElementById(resultId).innerHTML = 
+          '<span style="color:#f44336;">Пожалуйста, заполните все поля корректными значениями (1-5)</span>';
+        return;
+      }
+
+      // Сортировка результатов для рейтинга
+      results.sort((a, b) => isRankMethod ? a.sum - b.sum : b.sum - a.sum);
+
+      // Определение лучших моделей
+      const bestValue = isRankMethod 
+        ? Math.min(...results.map(r => r.sum)) 
+        : Math.max(...results.map(r => r.sum));
+      
+      const bestModels = results.filter(r => r.sum === bestValue);
+
+      // Формирование HTML с рейтингом
+      let resultHTML = bestModels.length === 1
+        ? `Лучшая модель: <strong>${bestModels[0].name}</strong> (${isRankMethod ? 'сумма рангов' : 'сумма баллов'}: ${bestValue})`
+        : `Лучшие модели: <strong>${bestModels.map(m => m.name).join(', ')}</strong> (${isRankMethod ? 'сумма рангов' : 'сумма баллов'}: ${bestValue})`;
+      
+      // Добавляем рейтинг всех моделей
+      resultHTML += '<div class="rating-list"><strong>Рейтинг моделей:</strong><ol>';
+      results.forEach(item => {
+        resultHTML += `<li>${item.name}: ${item.sum} ${isRankMethod ? 'рангов' : 'баллов'}</li>`;
+      });
+      resultHTML += '</ol></div>';
+
+      document.getElementById(resultId).innerHTML = resultHTML;
+
+      // Подсветка лучших моделей
+      results.forEach(item => {
+        item.row.style.backgroundColor = item.sum === bestValue ? '#e8f5e9' : '';
+      });
+    }
+
+    // Инициализация при загрузке
+    document.addEventListener('DOMContentLoaded', () => {
+      initTables();
+      
+      document.getElementById('calcRanks').addEventListener('click', () => {
+        calculateResults('rank');
+      });
+      
+      document.getElementById('calcPoints').addEventListener('click', () => {
+        calculateResults('point');
+      });
+    });
+  </script>
+</body>
+</html>

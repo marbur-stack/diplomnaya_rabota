@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучающий сайт по СППР в ГИС</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+	<link rel="manifest" href="images/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Дополнительные стили для улучшения визуала */
+        :root {
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --accent: #8bc34a;
+            --text-light: #e8f5e9;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .intro {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+        
+        .intro::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.9), rgba(139, 195, 74, 0.8));
+            z-index: 0;
+        }
+        
+        .intro-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+        
+        .intro h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .intro p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--text-light);
+        }
+        
+        .module-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .module-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .module-card i {
+            font-size: 2rem;
+            color: var(--primary-light);
+            margin-bottom: 15px;
+        }
+        
+        .resource-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .intro h2 {
+                font-size: 1.8rem;
+            }
+            
+            .intro p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+    <div class="header-container">
+        <h1>Системы поддержки принятия решений в государственных информационных системах</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="theory.html">Теоретическая часть</a></li>
+                <li><a href="practice.html">Практические задания</a></li>
+                <li><a href="tests.html">Тесты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <div class="container">
+        <section class="intro">
+            <div class="intro-content">
+                <h2>Добро пожаловать на обучающий портал!</h2>
+                <p>Освойте современные методы поддержки принятия решений в государственном управлении с помощью нашего интерактивного курса.</p>
+                <a href="#start-learning" class="cta-button">Начать обучение <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">О проекте</h2>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Содержание курса</h3>
+                    <ul>
+                        <li>Основы СППР и их роль в ГИС</li>
+                        <li>Методы анализа и прогнозирования</li>
+                        <li>Кейсы из государственной практики</li>
+                        <li>Интерактивные симуляторы</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Результаты обучения</h3>
+                    <ul>
+                        <li>Навыки работы с системами СППР</li>
+                        <li>Умение анализировать сложные данные</li>
+                        <li>Опыт решения реальных задач</li>
+                        <li>Сертификат о прохождении</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources">
+            <h2 class="section-title">Полезные ресурсы</h2>
+            <div class="modules-grid">
+                <a href="https://ru.wikipedia.org/wiki/Система_поддержки_принятия_решений" class="module-card" target="_blank">
+                    <span class="resource-badge">Википедия</span>
+                    <i class="fas fa-info-circle"></i>
+                    <h3>Основы СППР</h3>
+                    <p>Полное описание принципов работы систем поддержки принятия решений</p>
+                </a>
+                
+                <a href="https://habr.com/ru/articles/272331/" class="module-card" target="_blank">
+                    <span class="resource-badge">Habr</span>
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Технологии СППР</h3>
+                    <p>Современные подходы и технологии в разработке СППР</p>
+                </a>
+                
+                <a href="https://www.sciencedirect.com/topics/computer-science/decision-support-system" class="module-card" target="_blank">
+                    <span class="resource-badge">Science</span>
+                    <i class="fas fa-flask"></i>
+                    <h3>Научные статьи</h3>
+                    <p>Актуальные исследования в области Decision Support Systems</p>
+                </a>
+                
+                <a href="https://publications.hse.ru/mirror/pubs/share/folder/x5p6h7d8d9/direct/128296867" class="module-card" target="_blank">
+                    <span class="resource-badge">ВШЭ</span>
+                    <i class="fas fa-landmark"></i>
+                    <h3>СППР в госуправлении</h3>
+                    <p>Применение СППР в государственном секторе</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="start-learning">
+            <h2 class="section-title">Начните обучение</h2>
+            <div class="modules-grid">
+                <a href="theory.html" class="module-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Теоретическая часть</h3>
+                    <p>Лекционные материалы и методические указания</p>
+                    <span class="cta-button small">Изучить</span>
+                </a>
+                
+                <a href="practice.html" class="module-card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Практические задания</h3>
+                    <p>Интерактивные упражнения и кейсы</p>
+                    <span class="cta-button small">Решить</span>
+                </a>
+                
+                <a href="tests.html" class="module-card">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>Тесты</h3>
+                    <p>Проверьте свои знания</p>
+                    <span class="cta-button small">Пройти</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Обучающий портал по СППР в ГИС. Все права защищены.</p>
+    </footer>
+
+    <script>
+        // Подсветка активной вкладки
+        const currentPath = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll("header nav ul li a");
+        navLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPath) {
+                link.classList.add("active");
+            }
+        });
+        
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

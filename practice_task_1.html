@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Практическое задание 1: Оценка рисков инновационного проекта</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <link href="style.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Основные стили */
+    :root {
+      --primary-dark: #1b5e20;
+      --primary-light: #4caf50;
+      --primary-light-20: rgba(76, 175, 80, 0.2);
+      --accent: #8bc34a;
+      --text-light: #e8f5e9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --radius: 8px;
+    }
+    
+    body {
+      font-family: 'Roboto', 'Arial', sans-serif;
+      background-color: #f5f9f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    
+    /* Стили для контента */
+    .practice-block {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 40px;
+      transition: var(--transition);
+    }
+    
+    .practice-block:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+    
+    /* Типография */
+    h2, h3, h4 {
+      color: var(--primary-dark);
+      font-weight: 500;
+      margin-top: 25px;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #2e7d32;
+    }
+    
+    p {
+      margin-bottom: 15px;
+    }
+    
+    /* Списки */
+    ul {
+      padding-left: 25px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+    
+    /* Таблицы */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    th {
+      background-color: var(--primary-dark);
+      color: white;
+      font-weight: 500;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    tr:hover {
+      background-color: var(--primary-light-20);
+    }
+    
+    /* Кнопки скачивания */
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      background-color: var(--primary-dark);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      margin: 10px 10px 10px 0;
+    }
+    
+    .download-btn:hover {
+      background-color: #2e7d32;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .download-btn i {
+      margin-right: 8px;
+    }
+    
+    .download-group {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    
+    /* Анимации */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    section {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      .practice-block {
+        padding: 20px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      h3 {
+        font-size: 1.3rem;
+      }
+      
+      h4 {
+        font-size: 1.1rem;
+      }
+      
+      th, td {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+      
+      .download-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Практическое задание 1: Оценка рисков инновационного проекта</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="theory.html">Теоретическая часть</a></li>
+          <li><a href="practice.html" class="active">Практические задания</a></li>
+          <li><a href="tests.html">Тесты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">
+    <section class="practice-block">
+      <h2 class="centered-title">ОПРЕДЕЛЕНИЕ ВЕЛИЧИНЫ РИСКА ИННОВАЦИОННОГО ПРОЕКТА ЭКСПЕРТНЫМ МЕТОДОМ</h2>
+      
+      <h3>Цель работы</h3>
+      <p>Познакомиться с методами оценки рисков и научиться определять риски инновационного проекта методом экспертных оценок.</p>
+      
+      <h3>Порядок проведения работы</h3>
+      <ol>
+        <li>Определение вероятности наступления рисков</li>
+        <li>Выводы по работе</li>
+      </ol>
+      
+      <h3>Сведения из теории</h3>
+      <p>Для своевременной нейтрализации рисков предприятию необходимо постоянно изучать конъюнктуру рынка, проводить соответствующую ценовую политику, создать сеть сервисного обслуживания, провести рекламную компанию, для формирования общественного мнения и имиджа фирмы.</p>
+      
+      <p><strong>Риск</strong> (фр. risque, от итал. risilorischio) означает возможную опасность потерь, вытекающую из специфики тех или иных явлений природы и видов деятельности человека.</p>
+      
+      <p>Приведенное определение риска указывает, что риск как потеря чего-то может быть оценен потерей какого-то количества материального продукта (продукт, имеющий форму вещи), человеческой жизни, денег (денежных знаков), а также потерей той части интеллектуального продукта, который не имеет стоимостной оценки (рассудок, умственные способности и т. п.). Большая же часть интеллектуального продукта может иметь денежную оценку (информационный продукт, ноу-хау, талант, т. е. способности человека и др.).</p>
+      
+      <p><strong>Риск — это историческая и экономическая категория.</strong> Как историческая категория риск представляет собой опасность, осознанную человеком.</p>
+      
+      <p>Как экономическая категория риск означает событие, которое может произойти или не произойти. В случае совершения такого события возможны три экономических результата:</p>
+      <ol>
+        <li>Отрицательный (проигрыш, ущерб, убыток)</li>
+        <li>Нулевой</li>
+        <li>Положительный (выигрыш, выгода, прибыль)</li>
+      </ol>
+      
+      <h4>Классификация рисков</h4>
+      <p>По отношению к результату риски делятся на:</p>
+      <ul>
+        <li><strong>Чистые</strong> - означают возможность получения отрицательного или нулевого результата. Это, прежде всего, естественно-природные риски (экономические, политические, транспортные) и большая часть коммерческих рисков (имущественные, производственные, торговые).</li>
+        <li><strong>Спекулятивные</strong> - выражаются в возможности получения как положительного, так и отрицательного или нулевого результата.</li>
+      </ul>
+      
+      <p><strong>Финансовые риски</strong> — это целая система рисков, связанная с возможной потерей денег на произведенные денежные затраты:</p>
+      <p>ФР = Денежный убыток, руб./Денежные затраты, руб.</p>
+      <p>где ФР — финансовый риск.</p>
+      
+      <h4>Инновационный риск</h4>
+      <p>Частью общей системы финансовых рисков является инновационный риск. Финансовые риски делятся на две группы:</p>
+      <ul>
+        <li>риск, связанный со стоимостью денег;</li>
+        <li>инвестиционный риск.</li>
+      </ul>
+      
+      <h4>Методы анализа рисков</h4>
+      <ul>
+        <li>Вероятностный анализ</li>
+        <li>Экспертный анализ</li>
+        <li>Анализ чувствительности проекта</li>
+        <li>Метод аналогов</li>
+        <li>Анализ сценариев развития проектов</li>
+        <li>Метод построения деревьев решений</li>
+      </ul>
+      
+      <h3>Задание и материалы для выполнения</h3>
+        <a download href="practice_task1.docx" class="download-btn">
+          <i class="fas fa-file-word"></i> Скачать задание с примером выполнения (.docx)
+        </a>
+    </section>
+  </div>
+  
+  <footer>
+    <p>© 2025 Все права защищены</p>
+  </footer>
+  
+  <script>
+    const currentPath = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll("header nav ul li a");
+    navLinks.forEach(link => {
+      if (link.getAttribute("href") === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+</body>
+</html>

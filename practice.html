@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практические задания</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+	<link rel="manifest" href="images/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+	<div class="header-container">
+        <h1>Системы поддержки принятия решений в государственных информационных системах</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="theory.html">Теоретическая часть</a></li>
+                <li><a href="practice.html" class="active">Практические задания</a></li>
+                <li><a href="tests.html">Тесты</a></li>
+            </ul>
+        </nav>
+	</div>
+    </header>
+
+    <div class="container">
+        <section class="tasks">
+            <h2>Задания</h2>
+            <div class="modules-grid">
+
+                <!-- Задание 1 -->
+                <a href="practice_task_1.html" class="module-card">
+                    <img src="images/practice1.png" alt="Задание 1">
+                    <h3>Задание 1: Оценка рисков инновационного проекта</h3>
+                    <p>Определение величины риска инновационного проекта экспертным методом.</p>
+                </a>
+
+                <!-- Задание 2 -->
+                <a href="practice_task_2.html" class="module-card">
+                    <img src="images/practice2.png" alt="Задание 2">
+                    <h3>Задание 2: Разработка таблиц компетентности экспертов</h3>
+                    <p>Применение методов агрегирования экспертных оценок, произведение оценки согласованности мнений.</p>
+                </a>
+
+                <!-- Задание 3 -->
+                <a href="practice_task_3.html" class="module-card">
+                    <img src="images/practice3.png" alt="Задание 3">
+                    <h3>Задание 3: Исследование критериев для принятия решений в условиях неопределенности</h3>
+                    <p>Получение практических навыков работы с критериями для принятия решений в условиях неопределенности.</p>
+                </a>
+				
+				<!-- Задание 6 -->
+                <a href="practice_task_4.html" class="module-card">
+                    <img src="images/practice4.png" alt="Задание 3">
+                    <h3>Задание 4: Многокритериальная оптимизация</h3>
+                    <p>Решение задач принятия решений с использованием векторных критериев.</p>
+                </a>
+				
+				<!-- Задание 7 -->
+                <a href="practice_task_5.html" class="module-card">
+                    <img src="images/practice5.png" alt="Задание 3">
+                    <h3>Задание 5: Метод анализа иерархий</h3>
+                    <p>Принятие решений при многих критериях с помощью метода анализа иерархий.</p>
+                </a>
+
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Все права защищены</p>
+    </footer>
+
+    <!-- Скрипт активной вкладки -->
+    <script>
+        const currentPath = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll("header nav ul li a");
+        navLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPath) {
+                link.classList.add("active");
+            }
+        });
+    </script>
+
+</body>
+</html>

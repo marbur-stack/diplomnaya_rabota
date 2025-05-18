@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Теоретическая часть</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+	<link rel="manifest" href="images/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+	<div class="header-container">
+        <h1>Системы поддержки принятия решений в государственных информационных системах</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="theory.html" class="active">Теоретическая часть</a></li>
+                <li><a href="practice.html">Практические задания</a></li>
+                <li><a href="tests.html">Тесты</a></li>
+            </ul>
+        </nav>
+	</div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Модули</h2>
+            <div class="modules-grid">
+
+                <!-- Модуль 1 -->
+                <a href="theory_module1.html" class="module-card">
+                    <img src="images/module1.png" alt="Модуль 1">
+                    <h3>Модуль 1: Основы формирования управленческого решения</h3>
+                    <p>Система, управленческое решение.</p>
+                </a>
+
+                <!-- Модуль 2 -->
+                <a href="theory_module2.html" class="module-card">
+                    <img src="images/module2.png" alt="Модуль 2">
+                    <h3>Модуль 2: Особенности процесса принятия управленческого решения</h3>
+                    <p>Процесс принятия решения, концепции, взаимосвязи, стратегии.</p>
+                </a>
+
+                <!-- Модуль 3 -->
+                <a href="theory_module3.html" class="module-card">
+                    <img src="images/module3.png" alt="Модуль 3">
+                    <h3>Модуль 3: Моделирование и информатизация принятия решений</h3>
+                    <p>Модель, элементы, задачи, постановка задачи, таблица решений.</p>
+                </a>
+
+                <!-- Модуль 4 -->
+                <a href="theory_module4.html" class="module-card">
+                    <img src="images/module4.png" alt="Модуль 4">
+                    <h3>Модуль 4: Системы поддержки принятия решений как оптимальный инструмент принятия управленческих решений</h3>
+                    <p>СППР, цель, компоненты, виды.</p>
+                </a>
+
+                <!-- Модуль 5 -->
+                <a href="theory_module5.html" class="module-card">
+                    <img src="images/module5.png" alt="Модуль 5">
+                    <h3>Модуль 5: Место систем поддержки принятия решений в государственных информационных системах</h3>
+                    <p>ГИС, цель создания, требования, ЕАИС ТО, СППР в ЕАИС ТО.</p>
+                </a>
+
+                <!-- Модуль 6 -->
+                <a href="theory_module6.html" class="module-card">
+                    <img src="images/module6.png" alt="Модуль 6">
+                    <h3>Модуль 6: Модели хранения данных в системах поддержки принятия решений</h3>
+                    <p>Многомерная модель данных, хранилище данных (ХД), особенности ХД, витрины данных, модель данных OLAP, структура OLAP-куба.</p>
+                </a>
+				
+				 <!-- Модуль 7 -->
+                <a href="theory_module7.html" class="module-card">
+                    <img src="images/module7.png" alt="Модуль 7">
+                    <h3>Модуль 7: Экспертные системы поддержки принятия решений</h3>
+                    <p>Интеллект, экспертные системы, задачи, классификация, недостатки, компоненты.</p>
+                </a>
+
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Все права защищены</p>
+    </footer>
+
+    <!-- Скрипт активной вкладки -->
+    <script>
+        const currentPath = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll("header nav ul li a");
+        navLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPath) {
+                link.classList.add("active");
+            }
+        });
+    </script>
+
+</body>
+</html>

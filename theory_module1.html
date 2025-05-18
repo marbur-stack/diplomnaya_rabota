@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Модуль 1: Введение в СППР</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <link href="style.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Основные стили */
+    :root {
+      --primary-dark: #1b5e20;
+      --primary-light: #4caf50;
+      --primary-light-20: rgba(76, 175, 80, 0.2);
+      --accent: #8bc34a;
+      --text-light: #e8f5e9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --radius: 8px;
+    }
+    
+    body {
+      font-family: 'Roboto', 'Arial', sans-serif;
+      background-color: #f5f9f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    
+    /* Стили для контента */
+    .theory-block {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 40px;
+      transition: var(--transition);
+    }
+    
+    .theory-block:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+    
+    /* Типография */
+    h2, h3, h4 {
+      color: var(--primary-dark);
+      font-weight: 500;
+      margin-top: 25px;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #2e7d32;
+    }
+    
+    p {
+      margin-bottom: 15px;
+    }
+    
+    /* Списки */
+    ul {
+      padding-left: 25px;
+      margin-bottom: 20px;
+    }
+
+    
+    /* Таблицы */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    th {
+      background-color: var(--primary-dark);
+      color: white;
+      font-weight: 500;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    tr:hover {
+      background-color: var(--primary-light-20);
+    }
+    
+    /* Кнопка скачивания */
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      background-color: var(--primary-dark);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      margin-top: 10px;
+    }
+    
+    .download-btn:hover {
+      background-color: #2e7d32;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .download-btn i {
+      margin-right: 8px;
+    }
+    
+    /* Анимации */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    section {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      .theory-block {
+        padding: 20px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      h3 {
+        font-size: 1.3rem;
+      }
+      
+      h4 {
+        font-size: 1.1rem;
+      }
+      
+      th, td {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+      
+      .download-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Модуль 1: Введение в системы поддержки принятия решений</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="theory.html" class="active">Теоретическая часть</a></li>
+          <li><a href="practice.html">Практические задания</a></li>
+          <li><a href="tests.html">Тесты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">
+    <section class="theory-block">
+      <h2 class="centered-title">Основы формирования управленческого решения</h2>
+      
+      <h3>ОПРЕДЕЛЕНИЯ</h3>
+      <ul>
+        <li><strong>Система</strong> – совокупность взаимосвязанных элементов, образующих целостность.</li>
+        <li><strong>Состояние системы</strong> – фиксация её параметров на определённый момент времени.</li>
+        <li><strong>Изменение состояния системы</strong> – переход системы в новое состояние под влиянием внутренних или внешних факторов.</li>
+        <li><strong>Преобразование системы</strong> – целенаправленное изменение её структуры или свойств для повышения эффективности.</li>
+        <li><strong>Достижение нового состояния</strong> – конечная цель управления, при котором система приобретает запланированные характеристики.</li>
+        <li><strong>Управление системой</strong> – процесс координации её элементов для достижения целей.</li>
+        <li><strong>Лицо, принимающее решение (ЛПР)</strong> – субъект, ответственный за выбор решения.</li>
+        <li><strong>Управленческое решение</strong> – выбор цели и управляющих факторов для её достижения.</li>
+      </ul>
+      
+      <h3>1. Значение управленческих решений</h3>
+      <ul>
+        <li><strong>Влияние на эффективность бизнеса:</strong> Неверные решения ведут к убыткам, правильные – к развитию.</li>
+        <li><strong>Мотивация персонала:</strong> Решения о премиях, кадровых перестановках влияют на лояльность сотрудников.</li>
+        <li><strong>Адаптация к изменениям:</strong> Решения о цифровизации, выходе на новые рынки помогают выжить в конкурентной среде.</li>
+        <li><strong>Формирование корпоративной культуры:</strong> Политика открытости или жесткой иерархии зависит от решений топ-менеджмента.</li>
+      </ul>
+      
+      <h3>2. Классификация управленческих решений</h3>
+      
+      <h4>2.1. По степени структурированности</h4>
+      <table>
+        <tr>
+          <th>Тип решения</th>
+          <th>Характеристики</th>
+          <th>Примеры</th>
+        </tr>
+        <tr>
+          <td><strong>Запрограммированные</strong></td>
+          <td>Стандартные, повторяющиеся, основаны на правилах</td>
+          <td>Начисление зарплаты, график отпусков</td>
+        </tr>
+        <tr>
+          <td><strong>Незапрограммированные</strong></td>
+          <td>Нестандартные, требуют творческого подхода</td>
+          <td>Запуск нового продукта, слияние компаний</td>
+        </tr>
+      </table>
+      
+      <h4>2.2. По уровню управления</h4>
+      <table>
+        <tr>
+          <th>Уровень</th>
+          <th>Горизонт планирования</th>
+          <th>Примеры</th>
+        </tr>
+        <tr>
+          <td><strong>Стратегические</strong></td>
+          <td>3–10 лет</td>
+          <td>Выход на международный рынок, реорганизация компании</td>
+        </tr>
+        <tr>
+          <td><strong>Тактические</strong></td>
+          <td>1–3 года</td>
+          <td>Оптимизация логистики, внедрение CRM-системы</td>
+        </tr>
+        <tr>
+          <td><strong>Оперативные</strong></td>
+          <td>До 1 года</td>
+          <td>Закупка канцтоваров, график дежурств</td>
+        </tr>
+      </table>
+      
+      <h3>3. Факторы, влияющие на принятие решений</h3>
+      
+      <h4>3.1. Внутренние факторы</h4>
+      <ul>
+        <li>Финансовые ресурсы</li>
+        <li>Корпоративная культура</li>
+        <li>Организационная структура</li>
+      </ul>
+      
+      <h4>3.2. Внешние факторы</h4>
+      <ul>
+        <li>Экономические условия</li>
+        <li>Законодательство</li>
+        <li>Конкуренция</li>
+      </ul>
+      
+      <h3>4. Методы принятия решений</h3>
+      <ul>
+        <li><strong>Количественные:</strong> Линейное программирование, анализ безубыточности</li>
+        <li><strong>Качественные:</strong> Метод Дельфи, сценарное планирование</li>
+        <li><strong>Гибридные:</strong> Системный анализ, когнитивное моделирование</li>
+      </ul>
+      
+      <h3>5. Ошибки при принятии решений</h3>
+      <ul>
+        <li>Переоценка информации</li>
+        <li>Групповое мышление</li>
+        <li>Инерционность</li>
+        <li>Эмоциональные решения</li>
+      </ul>
+      
+      <h3>Заключение</h3>
+      <p>Формирование управленческого решения – сложный процесс, требующий анализа, творческого подхода и учета множества факторов. Эффективные решения основываются на достоверной информации, рациональном выборе и четкой реализации.</p>  
+      
+      <h3>Презентация к модулю</h3>
+      <p>Скачайте презентацию, содержащую ключевые моменты этого модуля:</p>
+      <a download href="module1_presentation.pptx" class="download-btn">
+        <i class="fas fa-download"></i> Скачать презентацию (.pptx)
+      </a>
+    </section>
+  </div>
+  
+  <footer>
+    <p>© 2025 Все права защищены</p>
+  </footer>
+  
+  <script>
+    const currentPath = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll("header nav ul li a");
+    navLinks.forEach(link => {
+      if (link.getAttribute("href") === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+</body>
+</html>

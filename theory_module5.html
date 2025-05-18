@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Модуль 5: СППР в государственных системах</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <link href="style.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Основные стили */
+    :root {
+      --primary-dark: #1b5e20;
+      --primary-light: #4caf50;
+      --primary-light-20: rgba(76, 175, 80, 0.2);
+      --accent: #8bc34a;
+      --text-light: #e8f5e9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --radius: 8px;
+    }
+    
+    body {
+      font-family: 'Roboto', 'Arial', sans-serif;
+      background-color: #f5f9f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    
+    /* Стили для контента */
+    .theory-block {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 40px;
+      transition: var(--transition);
+    }
+    
+    .theory-block:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+    
+    /* Типография */
+    h2, h3, h4 {
+      color: var(--primary-dark);
+      font-weight: 500;
+      margin-top: 25px;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #2e7d32;
+    }
+    
+    p {
+      margin-bottom: 15px;
+    }
+    
+    /* Списки */
+    ul {
+      padding-left: 25px;
+      margin-bottom: 20px;
+    }
+    
+    
+    /* Таблицы */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    th {
+      background-color: var(--primary-dark);
+      color: white;
+      font-weight: 500;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    tr:hover {
+      background-color: var(--primary-light-20);
+    }
+    
+    /* Кнопка скачивания */
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      background-color: var(--primary-dark);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      margin-top: 10px;
+    }
+    
+    .download-btn:hover {
+      background-color: #2e7d32;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .download-btn i {
+      margin-right: 8px;
+    }
+    
+    /* Анимации */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    section {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      .theory-block {
+        padding: 20px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      h3 {
+        font-size: 1.3rem;
+      }
+      
+      h4 {
+        font-size: 1.1rem;
+      }
+      
+      th, td {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+      
+      .download-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Модуль 5: Место СППР в государственных информационных системах</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="theory.html" class="active">Теоретическая часть</a></li>
+          <li><a href="practice.html">Практические задания</a></li>
+          <li><a href="tests.html">Тесты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">
+    <section class="theory-block">
+      <h2 class="centered-title">Место СППР в государственных информационных системах</h2>
+      
+      <h3>ОПРЕДЕЛЕНИЕ</h3>
+      <p><strong>Государственная информационная система (ГИС)</strong> – это совокупность программно-аппаратных средств, баз данных и регламентов, созданных для сбора, обработки, хранения и предоставления информации в интересах государственного управления.</p>
+
+      <h3>ЦЕЛИ СОЗДАНИЯ ГИС</h3>
+      <ul>
+        <li>Повышение эффективности госуправления</li>
+        <li>Обеспечение прозрачности и доступности госуслуг</li>
+        <li>Автоматизация процессов сбора и анализа данных</li>
+        <li>Защита государственных информационных ресурсов</li>
+      </ul>
+
+      <h3>ТРЕБОВАНИЯ К ГИС</h3>
+      <h4>Законодательные:</h4>
+      <ul>
+        <li>Соответствие ФЗ №149 (об информации)</li>
+      </ul>
+      
+      <h4>Технические:</h4>
+      <ul>
+        <li>Совместимость с другими системами (интеграция через API)</li>
+        <li>Масштабируемость (рост нагрузки без сбоев)</li>
+        <li>Отказоустойчивость (резервное копирование, дублирование серверов)</li>
+      </ul>
+      
+      <h4>Функциональные:</h4>
+      <ul>
+        <li>Автоматизированная обработка данных</li>
+        <li>Возможность удаленного доступа</li>
+      </ul>
+
+      <h3>ЭЛЕКТРОННЫЙ ПАСПОРТ ГИС</h3>
+      <p><strong>Электронный паспорт ГИС</strong> – документ, содержащий технические и эксплуатационные характеристики системы.</p>
+      <p><strong>Что включает:</strong></p>
+      <ul>
+        <li>Назначение и функции системы</li>
+        <li>Описание архитектуры (серверы, СУБД, ПО)</li>
+        <li>Перечень обрабатываемых данных</li>
+        <li>Меры защиты информации</li>
+        <li>Контакты ответственных лиц</li>
+      </ul>
+
+      <h3>ЗАЩИЩЕННОСТЬ ГИС</h3>
+      <p>ГИС относятся к <strong>критически важной инфраструктуре</strong>, поэтому их безопасность регулируется строгими стандартами:</p>
+      <h4>Меры защиты:</h4>
+      <ul>
+        <li>Шифрование данных (ГОСТ 34.10-2012, TLS)</li>
+        <li>Аутентификация и авторизация (ЭП, двухфакторная проверка)</li>
+        <li>Аудит действий (логирование всех операций)</li>
+        <li>Защита от кибератак (ФСТЭК, ГОСТ Р 57580.1-2017)</li>
+        <li>Сертифицированные СКЗИ (например, КриптоПро)</li>
+      </ul>
+
+      <h4>Контролирующие органы:</h4>
+      <ul>
+        <li>ФСТЭК (требования к защите от угроз)</li>
+        <li>ФСБ (криптографическая защита)</li>
+        <li>Роскомнадзор (соблюдение законов о данных)</li>
+      </ul>
+
+      <h3>ЕАИС ТО</h3>
+      <p><strong>ЕАИС ТО</strong> – централизованная государственная информационная система, обеспечивающая автоматизацию процессов таможенного контроля, администрирования и управления в Федеральной таможенной службе (ФТС России).</p>
+
+      <h4>Системы поддержки принятия решений (СППР) в ЕАИС ТО используются для:</h4>
+      <p><strong>Аналитики и прогнозирования:</p></strong>
+      <ul>
+        <li>Автоматическая оценка рисков (алгоритмы выявляют подозрительные грузы)</li>
+        <li>Оптимизация таможенных проверок (ранжирование деклараций)</li>
+      </ul>
+
+      <p><strong>Поддержки оперативных решений:</p></strong>
+      <ul>
+        <li>СППР для инспекторов:
+          <ul>
+            <li>Рекомендации по досмотру</li>
+            <li>Расчет таможенных платежей</li>
+          </ul>
+        </li>
+        <li>СППР для руководства:
+          <ul>
+            <li>Анализ потоков импорта/экспорта</li>
+            <li>Управление ресурсами</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p><strong>Интеграции с внешними системами:</p></strong>
+      <ul>
+        <li>Использование Big Data (сопоставление данных из ЕАИС ТО с ФНС, банками)</li>
+        <li>Блокчейн-технологии (отслеживание цепочек поставок)</li>
+      </ul>
+
+      <h3>ЗАКЛЮЧЕНИЕ</h3>
+      <p>ГИС – ключевой инструмент цифровизации госуправления, требующий строгого соблюдения норм безопасности и прозрачности. Их внедрение ускоряет бюрократические процессы, но требует значительных ресурсов на защиту данных.</p>
+
+      <h3>Презентация к модулю</h3>
+      <p>Скачайте презентацию, содержащую ключевые моменты этого модуля:</p>
+      <a download href="module1_presentation.pptx" class="download-btn">
+        <i class="fas fa-download"></i> Скачать презентацию (.pptx)
+      </a>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Все права защищены</p>
+  </footer>
+  
+  <script>
+    const currentPath = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll("header nav ul li a");
+    navLinks.forEach(link => {
+      if (link.getAttribute("href") === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+</body>
+</html>

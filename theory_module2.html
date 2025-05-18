@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Модуль 2: Процесс принятия решений</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <link href="style.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Основные стили */
+    :root {
+      --primary-dark: #1b5e20;
+      --primary-light: #4caf50;
+      --primary-light-20: rgba(76, 175, 80, 0.2);
+      --accent: #8bc34a;
+      --text-light: #e8f5e9;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --radius: 8px;
+    }
+    
+    body {
+      font-family: 'Roboto', 'Arial', sans-serif;
+      background-color: #f5f9f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    
+    /* Стили для контента */
+    .theory-block {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 40px;
+      transition: var(--transition);
+    }
+    
+    .theory-block:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+    
+    /* Типография */
+    h2, h3, h4 {
+      color: var(--primary-dark);
+      font-weight: 500;
+      margin-top: 25px;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #2e7d32;
+    }
+    
+    p {
+      margin-bottom: 15px;
+    }
+    
+    /* Списки */
+    ul {
+      padding-left: 25px;
+      margin-bottom: 20px;
+    }
+    
+    
+    /* Таблицы */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    th {
+      background-color: var(--primary-dark);
+      color: white;
+      font-weight: 500;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    tr:hover {
+      background-color: var(--primary-light-20);
+    }
+    
+    /* Кнопка скачивания */
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      background-color: var(--primary-dark);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      margin-top: 10px;
+    }
+    
+    .download-btn:hover {
+      background-color: #2e7d32;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .download-btn i {
+      margin-right: 8px;
+    }
+    
+    /* Анимации */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    section {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      .theory-block {
+        padding: 20px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      h3 {
+        font-size: 1.3rem;
+      }
+      
+      h4 {
+        font-size: 1.1rem;
+      }
+      
+      th, td {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+      
+      .download-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Модуль 2: Процесс принятия управленческих решений</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="theory.html" class="active">Теоретическая часть</a></li>
+          <li><a href="practice.html">Практические задания</a></li>
+          <li><a href="tests.html">Тесты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">
+    <section class="theory-block">
+      <h2 class="centered-title">Особенности процесса принятия управленческого решения</h2>
+      
+      <blockquote>
+        <p>"Процесс принятия решения -- это процесс выбора решения задачи из нескольких возможных вариантов."</p>
+        <p>"Весь процесс решения проблемы, начиная с ее выявления и заканчивая реализацией решения, называется процессом решения проблемы."</p>
+      </blockquote>
+
+      <h3>Ключевые этапы:</h3>
+      <ul>
+        <li>Выявление проблемы</li>
+        <li>Определение целей и задач</li>
+        <li>Разработка альтернативных вариантов</li>
+        <li>Выбор оптимального решения</li>
+        <li>Реализация и контроль</li>
+      </ul>
+
+      <h3>КОНЦЕПЦИЯ ПРИНЯТИЯ РЕШЕНИЙ</h3>
+      <ul>
+        <li><strong>Решение</strong> -- это реакция органа управления, направленная на эффективное достижение результата.</li>
+        <li><strong>Проблема</strong> -- сложная ситуация, отражающая разрыв между текущим и желаемым состоянием системы.</li>
+        <li><strong>Управленческое решение</strong> -- это совокупный результат творческого процесса управляющей системы, направленный на разрешение конкретной ситуации.</li>
+      </ul>
+
+      <h4>Ключевые принципы:</h4>
+      <ul>
+        <li>Решения принимаются в условиях неопределенности, ограниченного времени и конфликта интересов</li>
+        <li>На выбор влияют личные качества руководителей и иерархические противоречия</li>
+      </ul>
+
+      <h3>СТРАТЕГИЯ ПРИНЯТИЯ РЕШЕНИЙ</h3>
+      <div class="highlight-box">
+        <h4>Ключевые элементы стратегии:</h4>
+        <ul>
+          <li><strong>Подготовка решений:</strong>
+            <ul>
+              <li>Анализ обстоятельств (планы развития, бизнес-стратегии)</li>
+              <li>Формулирование проблемы</li>
+              <li>Постановка целей</li>
+              <li>Разработка альтернативных решений</li>
+            </ul>
+          </li>
+          <li><strong>Принятие решений:</strong>
+            <ul>
+              <li>Обсуждение и выбор оптимального варианта</li>
+              <li>Согласование с заинтересованными сторонами</li>
+              <li>Утверждение и реализация</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <h2>КЛАССИФИКАЦИЯ МОДЕЛЕЙ</h2>
+      <h3>По степени структурированности</h3>
+
+      <h4>1.1. Рациональная (нормативная) модель</h4>
+      <ul>
+        <li><strong>Суть:</strong> Логичный, пошаговый подход, основанный на полной информации</li>
+        <li><strong>Этапы:</strong>
+          <ol>
+            <li>Определение проблемы</li>
+            <li>Сбор и анализ данных</li>
+            <li>Генерация альтернатив</li>
+            <li>Оценка вариантов</li>
+            <li>Выбор оптимального решения</li>
+          </ol>
+        </li>
+        <li><strong>Применение:</strong> В условиях определенности, где все факторы известны</li>
+      </ul>
+
+      <h4>1.2. Ограниченно рациональная модель (Г. Саймон)</h4>
+      <ul>
+        <li><strong>Суть:</strong> Решения принимаются в условиях неполной информации, когнитивных ограничений и времени</li>
+        <li><strong>Ключевые принципы:</strong>
+          <ul>
+            <li><strong>"Удовлетворение" (satisficing)</strong> -- выбор не идеального, а приемлемого варианта</li>
+            <li>Учет психологических и организационных ограничений</li>
+          </ul>
+        </li>
+        <li><strong>Применение:</strong> В бизнесе и управлении, где полный анализ невозможен</li>
+      </ul>
+
+      <h4>1.3. Модель "мусорного ведра" (Коэн, Марч, Олсен)</h4>
+      <ul>
+        <li><strong>Суть:</strong> Решения принимаются хаотично, в условиях высокой неопределенности</li>
+        <li><strong>Ключевые элементы:</strong>
+          <ul>
+            <li>Проблемы, решения, участники и выбор возникают случайно</li>
+            <li>Решения могут "прикрепляться" к проблемам постфактум</li>
+          </ul>
+        </li>
+        <li><strong>Применение:</strong> В сложных организациях с высокой динамикой</li>
+      </ul>
+
+      <h3>По уровню неопределенности</h3>
+
+      <h4>2.1. Детерминированные модели</h4>
+      <ul>
+        <li><strong>Суть:</strong> Все параметры известны, результат предсказуем</li>
+        <li><strong>Примеры:</strong>
+          <ul>
+            <li>Линейное программирование (оптимизация ресурсов)</li>
+            <li>Дерево решений с известными вероятностями</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>2.2. Вероятностные (стохастические) модели</h4>
+      <ul>
+        <li><strong>Суть:</strong> Учитываются риски и вероятности событий</li>
+        <li><strong>Примеры:</strong>
+          <ul>
+            <li>Анализ сценарных моделей</li>
+            <li>Метод Монте-Карло (имитационное моделирование)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>2.3. Модели в условиях неопределенности</h4>
+      <ul>
+        <li><strong>Суть:</strong> Нет данных о вероятностях исходов</li>
+        <li><strong>Методы:</strong>
+          <ul>
+            <li><strong>Максимин (пессимистичный подход)</strong> -- выбор варианта с наименьшими потерями</li>
+            <li><strong>Максимакс (оптимистичный подход)</strong> -- ориентация на лучший исход</li>
+            <li><strong>Критерий Гурвица</strong> -- компромисс между оптимизмом и пессимизмом</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>ВЗАИМОСВЯЗЬ МОДЕЛЕЙ</h3>
+      <ol>
+        <li><strong>Рациональная модель</strong> → применяется в стабильных условиях, где есть данные</li>
+        <li><strong>Ограниченная рациональность</strong> → используется, когда информации недостаточно</li>
+        <li><strong>"Мусорное ведро"</strong> → актуально в хаотичных, быстро меняющихся средах</li>
+        <li><strong>Детерминированные и вероятностные модели</strong> дополняют рациональный подход, добавляя анализ рисков</li>
+      </ol>
+
+      <h2>СТРАТЕГИИ ПРИНЯТИЯ УПРАВЛЕНЧЕСКИХ РЕШЕНИЙ</h2>
+
+      <h3>1. Рациональная (аналитическая) стратегия</h3>
+      <p><strong>Когда применяется:</strong></p>
+      <ul>
+        <li>Проблема четко определена</li>
+        <li>Доступна достоверная информация</li>
+        <li>Есть время для анализа</li>
+      </ul>
+      <p><strong>Этапы:</strong></p>
+      <ol>
+        <li><strong>Диагностика проблемы</strong> -- выявление причин и последствий</li>
+        <li><strong>Сбор и анализ данных</strong> -- изучение факторов влияния</li>
+        <li><strong>Генерация альтернатив</strong> -- поиск возможных решений</li>
+        <li><strong>Оценка вариантов</strong> -- сравнение по критериям (стоимость, риски, эффективность)</li>
+        <li><strong>Выбор оптимального решения</strong> -- на основе объективных данных</li>
+      </ol>
+
+      <!-- Остальные стратегии аналогично -->
+
+      <h3>Вывод: как выбрать стратегию?</h3>
+      <ol>
+        <li><strong>Если есть данные и время</strong> → <strong>Рациональная стратегия</strong></li>
+        <li><strong>Если информации мало</strong> → <strong>Ограниченная рациональность или интуиция</strong></li>
+        <li><strong>Если вовлечены конфликтующие стороны</strong> → <strong>Политическая стратегия</strong></li>
+        <li><strong>Если среда нестабильна</strong> → <strong>Адаптивный подход</strong></li>
+        <li><strong>Если риски решения выше выгод</strong> → <strong>Стратегия избегания</strong></li>
+      </ol>
+
+      <h3>Презентация к модулю</h3>
+      <p>Скачайте презентацию, содержащую ключевые моменты этого модуля:</p>
+      <a download href="module1_presentation.pptx" class="download-btn">
+        <i class="fas fa-download"></i> Скачать презентацию (.pptx)
+      </a>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Все права защищены</p>
+  </footer>
+  
+  <script>
+    const currentPath = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll("header nav ul li a");
+    navLinks.forEach(link => {
+      if (link.getAttribute("href") === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+</body>
+</html>
